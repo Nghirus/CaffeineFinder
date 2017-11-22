@@ -1,5 +1,6 @@
 package edu.orangecoastcollege.cs273.caffeinefinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -98,6 +99,8 @@ public class CaffeineListActivity extends AppCompatActivity implements OnMapRead
     {
         LinearLayout selectedLayout = (LinearLayout) v;
         Location selectedLocation = (Location) selectedLayout.getTag();
-        selectedLocation.getCity();
+        Intent detailsIntent = new Intent(this,LocationDetailActivity.class);
+        detailsIntent.putExtra("Selected Location", selectedLocation);
+        startActivity(detailsIntent);
     }
 }
